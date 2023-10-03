@@ -7,6 +7,7 @@ export const s = StyleSheet.create({
   background: {
     flex: 1,
     backgroundColor: "black",
+    padding: 20,
   },
   img: {
     opacity: 0.85,

@@ -1,6 +1,12 @@
+import { View, Text } from "react-native";
 import { s } from "./Txt.style";
-import { Text } from "react-native";
 
-export default function Txt({ children, style }) {
-  return <Text style={[s.text, style]}>{children}</Text>;
-}
+const Txt = ({ children, style }) => {
+  return (
+    <View>
+      <Text style={[s.text, style]}>{children}</Text>
+    </View>
+  );
+};
+
+export default Txt;
