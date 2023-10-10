@@ -1,4 +1,4 @@
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import AlaraRegular from "./assets/fonts/Alata-Regular.ttf";
 import { useFonts } from "expo-font";
 import { NavigationContainer } from "@react-navigation/native";

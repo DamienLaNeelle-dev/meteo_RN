@@ -5,13 +5,13 @@ import {
   getCurrentPositionAsync,
 } from "expo-location";
 import { useEffect, useState } from "react";
-import { MeteoAPI } from "../api/meteo";
-import { MeteoBasic } from "../components/MeteoBasic/MeteoBasic";
-import Txt from "../components/Txt/Txt";
-import { getWeatherInterpretation } from "../services/meteo-service";
-import MeteoAdvanced from "../components/MeteoAdvanced/MeteoAdvanced";
+import { MeteoAPI } from "../../api/meteo";
+import { MeteoBasic } from "../../components/MeteoBasic/MeteoBasic";
+import Txt from "../../components/Txt/Txt";
+import { getWeatherInterpretation } from "../../services/meteo-service";
+import MeteoAdvanced from "../../components/MeteoAdvanced/MeteoAdvanced";
 import { useNavigation } from "@react-navigation/native";
-import { Container } from "../components/Container/Container";
+import { Container } from "../../components/Container/Container";
 
 export default function Home() {
   const [coords, setCoords] = useState();
