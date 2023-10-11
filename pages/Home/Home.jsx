@@ -12,6 +12,7 @@ import { getWeatherInterpretation } from "../../services/meteo-service";
 import MeteoAdvanced from "../../components/MeteoAdvanced/MeteoAdvanced";
 import { useNavigation } from "@react-navigation/native";
 import { Container } from "../../components/Container/Container";
+import Searchbar from "../../components/Searchbar/Searchbar";
 
 export default function Home() {
   const [coords, setCoords] = useState();
@@ -55,6 +56,15 @@ export default function Home() {
     setCity(cityResponse);
   }
 
+  async function fetchCoordsByCity(city) {
+    try {
+      const coords = await MeteoAPI.fetchCoordsFromCity(city);
+      setCoords(coords);
+    } catch (e) {
+      Alert.alert("Oups !", e);
+    }
+  }
+
   function goToForecastPage() {
     nav.navigate("Forecast", { city, ...weather.daily });
   }
@@ -68,7 +78,9 @@ export default function Home() {
           onPress={goToForecastPage}
         />
       </View>
-      <View style={s.searchbar}></View>
+      <View style={s.searchbar}>
+        <Searchbar onSubmit={fetchCoordsByCity} />
+      </View>
       <MeteoAdvanced
         wind={currentWeather.windspeed}
         dusk={weather.daily.sunrise[0].split("T")[1]}
